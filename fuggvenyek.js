@@ -6,7 +6,7 @@ export function kartyakOsszeAllit(lista) {
   let txt = `<div class="row g-3">`; // g-3 = spacing a kártyák között
   lista.forEach((element, i) => {
     txt += `
-      <div class="col-lg-4 col-md-6 col-sm-12">
+      <div class="col-lg-4 col-sm-8 col-sm-12">
         <div class="card h-100 shadow">
           <div class="card-header text-center">
             <h5 class="card-title">${element.nev}</h5>
@@ -17,7 +17,7 @@ export function kartyakOsszeAllit(lista) {
           </div>
           <div class="card-footer d-flex justify-content-between">
             <span class="fw-bold">${element.ar} Ft</span>
-            <button id="${i}" class="kosarba btn btn-dark btn-sm">Kosárba</button>
+            <button id="${i}" class="kosarba btn btn-dark btn-sm">Megtekíntés</button>
           </div>
         </div>
       </div>`;
