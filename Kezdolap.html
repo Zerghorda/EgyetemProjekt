@@ -27,6 +27,21 @@
     <main class="row">
       <nav class="navbar navbar-expand-sm navbar-dark bg-dark col-lg-12">
         <div class="container-fluid">
+
+          <form class="d-none d-sm-flex me-auto" role="search" onsubmit="event.preventDefault(); keresesInditasa();">
+            <input type="text" id="keresoMezo" class="form-control me-2" placeholder="Keresés..." />
+            <button type="submit" class="btn btn-outline-light">Keresés</button>
+          </form>
+
+          <div class="d-sm-none d-flex justify-content-start px-3 mt-2">
+            <button class="btn btn-outline-light" onclick="toggleKeresosav()">Keresés</button>
+          </div>
+
+          <div id="mobilKeresosav" class="d-sm-none px-3" style="display: none;">
+            <input type="text" id="keresoMezo" class="form-control my-2" placeholder="Írd be, amit keresel..." />
+            <button class="btn btn-primary mb-3" onclick="keresesInditasa()">Keresés indítása</button>
+          </div>
+
           <button
             class="navbar-toggler ms-auto"
             type="button"
