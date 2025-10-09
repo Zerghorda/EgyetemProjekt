@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,11 +21,11 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mobilmenu.css" />
     <script type="module" src="main.js"></script>
-    <title>Kezdőlap</title>
+    <title>Kosár</title>
   </head>
   <body>
     <main class="row">
-      <nav class="navbar navbar-expand-sm navbar-dark bg-dark col-lg-12">
+      <nav class="navbar navbar-expand-sm navbar-dark bg-dark col-12">
         <div class="container-fluid">
 
           <!-- Gépi keresőmező -->
@@ -100,21 +100,76 @@
                 <a class="nav-link" href="index.html">Termékeink</a>
               </li>
               <li class="nav-item">
-               <a class="nav-link" href="kosar.html">
+                <a class="nav-link" href="kosar.html">
                 <i class="fa fa-shopping-cart"></i> Kosár <span id="kosarDb">(0)</span></a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
+
       <header class="text-center col-lg-12">
         <h1>Kosár</h1>
       </header>
-      <footer class="col-lg-12 text-center">
+
+      <div class="container mt-5">
+        <h1 class="text-center">🛒 Kosarad</h1>
+        <div id="cart-items"></div>
+        <div class="total text-end mt-3" id="cart-total">Összesen: 0 Ft</div>
+        <div class="actions text-center mt-4">
+          <button id="clear-cart" class="btn btn-dark me-2">Kosár ürítése</button>
+          <button id="checkout" class="btn btn-dark">Megrendelés elküldése</button>
+        </div>
+      </div>
+
+      <footer class="col-lg-12 text-center mt-4">
         <i class="fa fa-copyright" style="font-size: 24px">
           Tar Gergő &nbsp;&nbsp; Földi Kristóf
         </i>
       </footer>
     </main>
+
+    <script>
+      function loadCart() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const container = document.getElementById('cart-items');
+        const totalEl = document.getElementById('cart-total');
+        container.innerHTML = '';
+        let total = 0;
+
+        if (cart.length === 0) {
+          container.innerHTML = '<p class="text-center text-muted">A kosarad üres 🛍️</p>';
+          totalEl.textContent = 'Összesen: 0 Ft';
+          return;
+        }
+
+        cart.forEach(item => {
+          const div = document.createElement('div');
+          div.classList.add('cart-item', 'd-flex', 'justify-content-between', 'align-items-center', 'border-bottom', 'py-2');
+          div.innerHTML = `
+            <div class="item-info">
+              <div class="item-name fw-bold text-dark">${item.name}</div>
+              <div class="item-price text-muted">${item.price} Ft</div>
+            </div>
+            <div>${item.quantity} db</div>
+          `;
+          container.appendChild(div);
+          total += item.price * item.quantity;
+        });
+
+        totalEl.textContent = 'Összesen: ' + total.toLocaleString() + ' Ft';
+      }
+
+      document.getElementById('clear-cart').addEventListener('click', () => {
+        localStorage.removeItem('cart');
+        loadCart();
+      });
+
+      document.getElementById('checkout').addEventListener('click', () => {
+        window.location.href = 'rendeles_elkuldo.html';
+      });
+
+      loadCart();
+    </script>
   </body>
 </html>
