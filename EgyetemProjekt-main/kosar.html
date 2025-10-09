@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kosár</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f6f7fb;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 90%;
+      max-width: 900px;
+      margin: 50px auto;
+      background: white;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+      padding: 10px 0;
+    }
+    .cart-item:last-child {
+      border-bottom: none;
+    }
+    .item-info {
+      flex: 1;
+    }
+    .item-name {
+      font-weight: bold;
+      color: #222;
+    }
+    .item-price {
+      color: #666;
+    }
+    .total {
+      text-align: right;
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .actions {
+      text-align: center;
+      margin-top: 30px;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      margin: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🛒 Kosarad</h1>
+    <div id="cart-items"></div>
+    <div class="total" id="cart-total">Összesen: 0 Ft</div>
+    <div class="actions">
+      <button id="clear-cart">Kosár ürítése</button>
+      <button id="checkout">Megrendelés elküldése</button>
+    </div>
+  </div>
+
+  <script>
+    function loadCart() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const container = document.getElementById('cart-items');
+      const totalEl = document.getElementById('cart-total');
+      container.innerHTML = '';
+      let total = 0;
+
+      if (cart.length === 0) {
+        container.innerHTML = '<p style="text-align:center;color:#777;">A kosarad üres 🛍️</p>';
+        totalEl.textContent = 'Összesen: 0 Ft';
+        return;
+      }
+
+      cart.forEach(item => {
+        const div = document.createElement('div');
+        div.classList.add('cart-item');
+        div.innerHTML = `
+          <div class="item-info">
+            <div class="item-name">${item.name}</div>
+            <div class="item-price">${item.price} Ft</div>
+          </div>
+          <div>${item.quantity} db</div>
+        `;
+        container.appendChild(div);
+        total += item.price * item.quantity;
+      });
+
+      totalEl.textContent = 'Összesen: ' + total.toLocaleString() + ' Ft';
+    }
+
+    document.getElementById('clear-cart').addEventListener('click', () => {
+      localStorage.removeItem('cart');
+      loadCart();
+    });
+
+    document.getElementById('checkout').addEventListener('click', () => {
+      window.location.href = 'rendeles_elkuldo.html';
+    });
+
+    loadCart();
+  </script>
+</body>
+</html>
