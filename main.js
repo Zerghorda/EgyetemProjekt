@@ -29,3 +29,11 @@ function keresesInditasa() {
     alert("Keresett kifejezés: " + keresettSzoveg);
   }
 }
+function toggleKeresosav() {
+  const sav = document.getElementById("mobilKeresosav");
+  if (sav.style.display === "none" || sav.style.display === "") {
+    sav.style.display = "block";
+  } else {
+    sav.style.display = "none";
+  }
+}
