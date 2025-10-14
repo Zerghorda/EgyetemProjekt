@@ -8,28 +8,13 @@
 </head>
 <body>
   <div class="box">
-    <h1><span style="font-size: 1.2em;">✅</span> A rendelés sikeresen elküldve!</h1>
-    <p>Köszönjük a vásárlást! Itt vannak a rendelésed tételei:</p>
+    <h1><span>✅</span> Sikeres rendelés!</h1>
+    <h2>Köszönjük, hogy a Kavallo Horses-nál vásárolt!</h2>
+    <p>Itt vannak rendelése tételei:</p>
     <ul id="order-items"></ul>
     <button onclick="window.location.href='Kezdolap.html'">Vissza a főoldalra</button>
   </div>
 
-  <script>
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const list = document.getElementById('order-items');
-
-    if (cart.length === 0) {
-      list.innerHTML = '<li>Nincs megjeleníthető tétel.</li>';
-    } else {
-      cart.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = `${item.name} – ${item.quantity} db – ${item.price} Ft`;
-        list.appendChild(li);
-      });
-    }
-
-    // ürítjük a kosarat a sikeres rendelés után
-    localStorage.removeItem('cart');
-  </script>
+  <script src="rendeles_elkuldo.js"></script>
 </body>
 </html>
