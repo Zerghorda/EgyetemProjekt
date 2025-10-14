@@ -4,58 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rendelés elküldve</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f6f7fb;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .box {
-      background: white;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      text-align: center;
-      width: 90%;
-      max-width: 600px;
-    }
-    h1 {
-      color: #28a745;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      margin-top: 20px;
-      text-align: left;
-    }
-    li {
-      padding: 5px 0;
-      border-bottom: 1px solid #eee;
-    }
-    button {
-      margin-top: 20px;
-      background: #424242;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    button:hover {
-      background: #0056b3;
-    }
-  </style>
+  <link rel="stylesheet" href="rendeles_elkuldo.css">
 </head>
 <body>
   <div class="box">
-    <h1>✅ A rendelés sikeresen elküldve!</h1>
+    <h1><span style="font-size: 1.2em;">✅</span> A rendelés sikeresen elküldve!</h1>
     <p>Köszönjük a vásárlást! Itt vannak a rendelésed tételei:</p>
     <ul id="order-items"></ul>
-    <button onclick="window.location.href='index.html'">Vissza a főoldalra</button>
+    <button onclick="window.location.href='Kezdolap.html'">Vissza a főoldalra</button>
   </div>
 
   <script>
