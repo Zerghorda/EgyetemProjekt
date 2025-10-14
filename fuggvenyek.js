@@ -17,7 +17,7 @@ export function kartyakOsszeAllit(lista) {
           </div>
           <div class="card-footer d-flex justify-content-between">
             <span class="fw-bold">${element.ar} Ft</span>
-            <button id="${i}" class="kosarba btn btn-dark btn-sm">Megtekíntés</button>
+            <a href="termekbelso.html?id=${element.id}" class="btn btn-dark btn-sm">Megtekintés</a>
           </div>
         </div>
       </div>`;

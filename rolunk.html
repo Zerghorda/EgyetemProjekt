@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,95 +24,96 @@
     <title>Rólunk</title>
   </head>
   <body>
-    <main class="row">
-      <nav class="navbar navbar-expand-sm navbar-dark bg-dark col-12">
-        <div class="container-fluid">
 
-          <!-- Gépi keresőmező -->
-          <form class="d-none d-sm-flex me-auto" role="search" onsubmit="event.preventDefault(); keresesInditasa();">
-            <input
-              type="text"
-              id="keresoMezo"
-              class="form-control me-2"
-              placeholder="Keresés..."
-            />
-            <button
-              type="submit"
-              class="btn btn-outline-light"
-            >
-              Keresés
-            </button>
-          </form>
+    <!-- Teljes szélességű menüsáv -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark col-12">
+      <div class="container-fluid">
 
-          <!-- Mobilos kereső gomb -->
-          <div class="d-sm-none d-flex justify-content-start px-3 mt-2">
-            <button
-              class="btn btn-outline-light"
-              onclick="toggleKeresosav()"
-            >
-              Keresés
-            </button>
-          </div>
-
-          <!-- Mobilos kereső sáv -->
-          <div
-            id="mobilKeresosav"
-            class="d-sm-none px-3"
-            style="display: none;"
-          >
-            <input
-              type="text"
-              id="keresoMezo"
-              class="form-control my-2"
-              placeholder="Írd be, amit keresel..."
-            />
-            <button
-              class="btn btn-primary mb-3"
-              onclick="keresesInditasa()"
-            >
-              Keresés indítása
-            </button>
-          </div>
-
-          <!-- Menü gomb -->
+        <!-- Gépi keresőmező -->
+        <form class="d-none d-sm-flex me-auto" role="search" onsubmit="event.preventDefault(); keresesInditasa();">
+          <input
+            type="text"
+            id="keresoMezo"
+            class="form-control me-2"
+            placeholder="Keresés..."
+          />
           <button
-            class="navbar-toggler ms-auto"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#mynavbar"
-            aria-controls="mynavbar"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
+            type="submit"
+            class="btn btn-outline-light"
           >
-            <span class="navbar-toggler-icon"></span>
+            Keresés
           </button>
+        </form>
 
-          <!-- Menü elemek -->
-          <div class="collapse navbar-collapse" id="mynavbar">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="Kezdolap.html">Kezdőlap</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="rolunk.html">Rólunk</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="index.html">Termékeink</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="kosar.html">
-                <i class="fa fa-shopping-cart"></i> Kosár <span id="kosarDb">(0)</span></a>
-              </li>
-            </ul>
-          </div>
+        <!-- Mobilos kereső gomb -->
+        <div class="d-sm-none d-flex justify-content-start px-3 mt-2">
+          <button
+            class="btn btn-outline-light"
+            onclick="toggleKeresosav()"
+          >
+            Keresés
+          </button>
         </div>
-      </nav>
+
+        <!-- Mobilos kereső sáv -->
+        <div
+          id="mobilKeresosav"
+          class="d-sm-none px-3"
+          style="display: none;"
+        >
+          <input
+            type="text"
+            id="mobilKeresoMezo"
+            class="form-control my-2"
+            placeholder="Írd be, amit keresel..."
+          />
+          <button
+            class="btn btn-primary mb-3"
+            onclick="keresesInditasa()"
+          >
+            Keresés indítása
+          </button>
+        </div>
+
+        <!-- Menü gomb -->
+        <button
+          class="navbar-toggler ms-auto"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mynavbar"
+          aria-controls="mynavbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Menü elemek -->
+        <div class="collapse navbar-collapse" id="mynavbar">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="Kezdolap.html">Kezdőlap</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="rolunk.html">Rólunk</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Termékeink</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="kosar.html">
+              <i class="fa fa-shopping-cart"></i> Kosár <span id="kosarDb">(0)</span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="row">
 
       <header class="text-center col-lg-12">
         <h1>Rólunk</h1>
       </header>
-
-    
 
       <div class="col-lg-4 px-4"> 
         <br />
@@ -144,20 +145,21 @@
       </div>
 
       <div class="col-12 px-4">
-  <h2 class="text-center mt-4">Elérhetőségek</h2>
-  <ul class="list-unstyled">
-    <li><strong>Telefonszám:</strong> Hamarosan</li>
-    <li><strong>E-mail:</strong> Hamarosan</li>
-    <li><strong>Instagram:</strong> Hamarosan</li>
-    <li><strong>TikTok:</strong> Hamarosan</li>
-  </ul>
-</div>
+        <h2 class="text-center mt-4">Elérhetőségek</h2>
+        <ul class="list-unstyled">
+          <li><strong>Telefonszám:</strong> Hamarosan</li>
+          <li><strong>E-mail:</strong> Hamarosan</li>
+          <li><strong>Instagram:</strong> Hamarosan</li>
+          <li><strong>TikTok:</strong> Hamarosan</li>
+        </ul>
+      </div>
 
       <footer class="col-lg-12 text-center mt-4">
         <i class="fa fa-copyright" style="font-size: 24px">
           Tar Gergő &nbsp;&nbsp; Földi Kristóf
         </i>
       </footer>
+
     </main>
   </body>
 </html>
