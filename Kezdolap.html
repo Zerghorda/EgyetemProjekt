@@ -32,16 +32,37 @@
 
     <!-- Saját stíluslap -->
     <link rel="stylesheet" href="style.css" />
+
+    <!-- Inline stílus a fix navigációhoz -->
+    <style>
+      body {
+        margin: 0;
+        padding-top: 70px;
+        font-family: Arial, sans-serif;
+      }
+
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1050;
+        width: 100%;
+        background-color: #212529;
+      }
+    </style>
   </head>
 
   <body>
-
     <!-- Navigációs sáv -->
     <nav class="navbar navbar-expand-sm navbar-dark w-100">
       <div class="container-fluid">
-
         <!-- Gépi keresőmező (asztali nézet) -->
-        <form class="d-none d-sm-flex me-auto" role="search" onsubmit="event.preventDefault(); keresesInditasa();">
+        <form
+          class="d-none d-sm-flex me-auto"
+          role="search"
+          onsubmit="event.preventDefault(); keresesInditasa();"
+        >
           <input
             type="text"
             id="keresoMezo"
@@ -54,14 +75,18 @@
         </form>
 
         <!-- Mobilos kereső gomb -->
-        <div class="d-sm-none d-flex justify-content-start px-3 mt-2">
+        <div class="d-sm-none d-flex justify-content-start px-3">
           <button class="btn btn-outline-light" onclick="toggleKeresosav()">
             Keresés
           </button>
         </div>
 
         <!-- Mobilos kereső sáv -->
-        <div id="mobilKeresosav" class="d-sm-none px-3" style="display: none;">
+        <div
+          id="mobilKeresosav"
+          class="d-sm-none px-3"
+          style="display: none;"
+        >
           <input
             type="text"
             id="mobilKeresoMezo"
@@ -100,7 +125,8 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="kosar.html">
-                <i class="fa fa-shopping-cart"></i> Kosár <span id="kosarDb">(0)</span>
+                <i class="fa fa-shopping-cart"></i> Kosár
+                <span id="kosarDb">(0)</span>
               </a>
             </li>
           </ul>
@@ -110,15 +136,15 @@
 
     <!-- Oldaltartalom -->
     <main class="row">
-
       <!-- Középső szakasz, ahol a háttérkép és logó megjelenik -->
-      <div class="kozepre col-12 d-flex flex-column align-items-center justify-content-center text-center">
+      <div
+        class="kozepre col-12 d-flex flex-column align-items-center justify-content-center text-center"
+      >
         <img
           src="kepek/logo.jpeg"
           alt="Kavallo Horses logó"
           style="max-width: 450px; height: auto; margin-top: 60px; margin-bottom: 20px;"
         />
-        
       </div>
 
       <!-- Lábléc szakasz -->
@@ -127,8 +153,6 @@
           Tar Gergő &nbsp;&nbsp; Földi Kristóf
         </i>
       </footer>
-
     </main>
-
   </body>
 </html>
